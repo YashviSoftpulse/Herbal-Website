@@ -1,4 +1,4 @@
-import FiveStar from '../image/5 star.png';
+import FiveStar from '../image/5star.png';
 import Quote from '../image/quote.png';
 import HalfStar from '../image/half-star.png';
 import {Swiper, SwiperSlide} from 'swiper/react';

@@ -85,32 +85,32 @@ export default function Login() {
 
   return (
     <section>
-      <div class="container">
-        <div class="spacer">
-          <div class="section_title">
+      <div className="container">
+        <div className="spacer">
+          <div className="section_title">
             <h2>Welcome Back, Login here</h2>
           </div>
-          <div class="register_frm">
-            <div class="right_contact_form">
+          <div className="register_frm">
+            <div className="right_contact_form">
               <form action="">
-                <div class="contact_email">
+                <div className="contact_email">
                   <label for="">E-mail Address </label>
                   <br />
                   <input type="email" />
                 </div>
-                <div class="contact_email">
+                <div className="contact_email">
                   <label for="">Password </label>
                   <br />
                   <input type="password" />
                 </div>
-                <div class="login_btn">
+                <div className="login_btn">
                   <button>LogIn</button>
                 </div>
                 <span>
                   Not have an account?{' '}
                   <Link to="/account/register">Signup </Link> here
                 </span>
-                <div class="forgot_pass">
+                <div className="forgot_pass">
                   <a href="#">Forgot Password?</a>
                 </div>
               </form>

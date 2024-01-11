@@ -84,8 +84,7 @@ function Header({menu, setMenu, miniCart, setMiniCart}) {
       <div className="container">
         <div className="main_header flex align_center justify_between">
           <div className="menu_icon">
-            <button    className={`menu_btn bars ${menu ? 'active' : ''}`}
-              onClick={() => setMenu(!menu)}>
+            <button className="menu_btn bars">
               <svg
                 width="20"
                 height="15"
@@ -98,8 +97,7 @@ function Header({menu, setMenu, miniCart, setMiniCart}) {
                 <rect y="12" width="20" height="3" fill="white" />
               </svg>
             </button>
-            <button className={`menu_btn cross ${menu ? 'active' : ''}`}
-              onClick={() => setMenu(!menu)}>
+            <button className="menu_btn cross">
               <svg
                 width="17"
                 height="17"
@@ -120,7 +118,7 @@ function Header({menu, setMenu, miniCart, setMiniCart}) {
               <img src={logo} alt="" />
             </a>
           </div>
-          <div className={`navigation ${menu ? 'active' : ''}`}>
+          <div className="navigation">
             <nav>
               <div className="main_menu">
                 <ul className="flex align_center">
@@ -277,7 +275,7 @@ function Header({menu, setMenu, miniCart, setMiniCart}) {
                                     type="text"
                                     className="in-num"
                                     value="1"
-                                    readOnly
+                                    readOnly=""
                                   />
                                   <span className="plus"></span>
                                 </div>
@@ -308,8 +306,8 @@ function Header({menu, setMenu, miniCart, setMiniCart}) {
                                   <input
                                     type="text"
                                     className="in-num"
-                                    value={1}
-                                    readOnly
+                                    value="1"
+                                    readOnly=""
                                   />
                                   <span className="plus"></span>
                                 </div>
@@ -392,8 +390,6 @@ function Header({menu, setMenu, miniCart, setMiniCart}) {
     </header>
   );
 }
-
- 
 
 function Footer({menu}) {
   return (
@@ -674,5 +670,3 @@ function AccountLink() {
     </Link>
   );
 }
-
-

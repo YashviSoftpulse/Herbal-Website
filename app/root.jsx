@@ -12,7 +12,6 @@ import {
 } from '@remix-run/react';
 import {ShopifySalesChannel, Seo} from '@shopify/hydrogen';
 import invariant from 'tiny-invariant';
-
 import {Layout} from '~/components';
 import {seoPayload} from '~/lib/seo.server';
 import favicon from './image/favicon.png';
@@ -71,6 +70,7 @@ export default function App() {
   const locale = data.selectedLocale ?? DEFAULT_LOCALE;
   const hasUserConsent = true;
   const [menu, setMenu] = useState(false);
+  const [miniCart, setMiniCart] = useState(false);
 
   useAnalytics(hasUserConsent, locale);
 
@@ -84,12 +84,14 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className={menu ? 'active' : ''}>
+      <body className={menu && miniCart ? 'active' : ''}>
         <Layout
           key={`${locale.language}-${locale.country}`}
           layout={data.layout}
           menu={menu}
           setMenu={setMenu}
+          miniCart={miniCart}
+          setMiniCart={setMiniCart}
         >
           <Outlet />
         </Layout>
@@ -100,53 +102,53 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary({error}) {
-  const [root] = useMatches();
-  const locale = root?.data?.selectedLocale ?? DEFAULT_LOCALE;
-  const routeError = useRouteError();
-  const isRouteError = isRouteErrorResponse(routeError);
+// export function ErrorBoundary({error}) {
+//   const [root] = useMatches();
+//   const locale = root?.data?.selectedLocale ?? DEFAULT_LOCALE;
+//   const routeError = useRouteError();
+//   const isRouteError = isRouteErrorResponse(routeError);
 
-  let title = 'Error';
-  let pageType = 'page';
+//   let title = 'Error';
+//   let pageType = 'page';
 
-  if (isRouteError) {
-    title = 'Not found';
-    if (routeError.status === 404) pageType = routeError.data || pageType;
-  }
+//   if (isRouteError) {
+//     title = 'Not found';
+//     if (routeError.status === 404) pageType = routeError.data || pageType;
+//   }
 
-  return (
-    <html lang={locale.language}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>{title}</title>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Layout
-          layout={root?.data?.layout}
-          key={`${locale.language}-${locale.country}`}
-        >
-          {isRouteError ? (
-            <>
-              {routeError.status === 404 ? (
-                <NotFound type={pageType} />
-              ) : (
-                <GenericError
-                  error={{message: `${routeError.status} ${routeError.data}`}}
-                />
-              )}
-            </>
-          ) : (
-            <GenericError error={error instanceof Error ? error : undefined} />
-          )}
-        </Layout>
-        <Scripts />
-      </body>
-    </html>
-  );
-}
+//   return (
+//     <html lang={locale.language}>
+//       <head>
+//         <meta charSet="utf-8" />
+//         <meta name="viewport" content="width=device-width,initial-scale=1" />
+//         <title>{title}</title>
+//         <Meta />
+//         <Links />
+//       </head>
+//       <body>
+//         <Layout
+//           layout={root?.data?.layout}
+//           key={`${locale.language}-${locale.country}`}
+//         >
+//           {isRouteError ? (
+//             <>
+//               {routeError.status === 404 ? (
+//                 <NotFound type={pageType} />
+//               ) : (
+//                 <GenericError
+//                   error={{message: `${routeError.status} ${routeError.data}`}}
+//                 />
+//               )}
+//             </>
+//           ) : (
+//             <GenericError error={error instanceof Error ? error : undefined} />
+//           )}
+//         </Layout>
+//         <Scripts />
+//       </body>
+//     </html>
+//   );
+// }
 
 const LAYOUT_QUERY = `#graphql
   query layout(

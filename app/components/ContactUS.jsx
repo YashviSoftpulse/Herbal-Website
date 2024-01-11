@@ -1,14 +1,14 @@
 function ContactUS() {
   return (
     <section>
-      <div class="container">
-        <div class="spacer">
-          <div class="section_title">
+      <div className="container">
+        <div className="spacer">
+          <div className="section_title">
             <h2>Let Us Help You</h2>
           </div>
-          <div class="main_contact flex align_center">
-            <div class="left_contact">
-              <div class="left_contact_img">
+          <div className="main_contact flex align_center">
+            <div className="left_contact">
+              <div className="left_contact_img">
                 <img
                   src="image/contact.png"
                   alt="contact"
@@ -17,35 +17,35 @@ function ContactUS() {
                 />
               </div>
             </div>
-            <div class="right_contact">
-              <div class="right_contact_form">
+            <div className="right_contact">
+              <div className="right_contact_form">
                 <form action="">
-                  <div class="contact_frm_select">
-                    <label for="">How can we assist?</label>
+                  <div className="contact_frm_select">
+                    <label htmlFor="">How can we assist?</label>
                     <br />
                     <select name="" id="">
                       <option value="">Question about product</option>
                     </select>
                   </div>
-                  <div class="contact_name flex">
-                    <div class="first_name">
-                      <label for="">First Name</label>
+                  <div className="contact_name flex">
+                    <div className="first_name">
+                      <label htmlFor="">First Name</label>
                       <br />
                       <input type="text" />
                     </div>
-                    <div class="last_name">
-                      <label for="">Last Name</label>
+                    <div className="last_name">
+                      <label htmlFor="">Last Name</label>
                       <br />
                       <input type="text" />
                     </div>
                   </div>
-                  <div class="contact_email">
-                    <label for="">E-mail Address </label>
+                  <div className="contact_email">
+                    <label htmlFor="">E-mail Address </label>
                     <br />
                     <input type="email" />
                   </div>
-                  <div class="contact_textarea">
-                    <label for="">How can we help you?</label>
+                  <div className="contact_textarea">
+                    <label htmlFor="">How can we help you?</label>
                     <br />
                     <textarea name="" id="" cols="50" rows="4"></textarea>
                   </div>
